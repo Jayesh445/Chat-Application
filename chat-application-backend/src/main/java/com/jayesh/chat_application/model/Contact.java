@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.ZonedDateTime;
@@ -17,7 +18,9 @@ import java.time.ZonedDateTime;
 public class Contact {
     @Id
     private String contactId;
+    @DBRef
     private User user;
+    @DBRef
     private User contactUser;
     private String nickName;
     private String isBlocked;
