@@ -28,7 +28,7 @@ public class ChatController {
         return message;
     }
 
-    @MessageMapping
+    @MessageMapping("/sendPrivateMessage")
     public void privateMessage(MessageRequest messageRequest){
         Chat chat = (Chat) chatRepository.findById(messageRequest.getChatId())
                 .orElseThrow(()-> new RuntimeException("Chat Not found"));
